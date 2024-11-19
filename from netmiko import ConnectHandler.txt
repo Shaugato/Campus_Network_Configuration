@@ -1,0 +1,23 @@
+from netmiko import ConnectHandler
+
+device = [{ 'divice_type_type': 'cisco_ios', 'ip': '172.168.1.1', 'username': 'admin', 'password': 'password' }]
+
+connection = ConnectHandler(**Device)
+config = connection.send_command('show running-config')
+print(config)
+connection.disconnect()
+
+
+
+
+We can use REST API to get Device Config :
+
+import requests
+
+url = "https//device-ip/api/config"
+headers = {"Authorization": "Bearer Token"}
+
+response = requests.get(url, headers=heaers)
+
+config - response.jason()
+print(config)
